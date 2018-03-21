@@ -1,0 +1,604 @@
+Srinidhis-MacBook-Pro:Scheduling srinidhigoud$ g++ scheduler.cpp -Wall -std=c++0x
+Srinidhis-MacBook-Pro:Scheduling srinidhigoud$ ./a.out -verbose input5.txt
+The original input was: 3 1 5 30 3 1 5 30 4 0 5 30 3 
+The sorted input is: 3 0 5 30 3 1 5 30 3 1 5 30 4 
+
+Part a
+
+This detailed printout gives the state and remaining burst for each process
+
+Before Cycle0         :unstarted 0         unstarted 0         unstarted 0         
+Before Cycle1         :running   4         unstarted 0         unstarted 0         
+Before Cycle2         :running   3         ready     0         ready     0         
+Before Cycle3         :running   2         ready     0         ready     0         
+Before Cycle4         :running   1         ready     0         ready     0         
+Before Cycle5         :blocked   2         running   3         ready     0         
+Before Cycle6         :blocked   1         running   2         ready     0         
+Before Cycle7         :ready     0         running   1         ready     0         
+Before Cycle8         :ready     0         blocked   2         running   4         
+Before Cycle9         :ready     0         blocked   1         running   3         
+Before Cycle10        :ready     0         ready     0         running   2         
+Before Cycle11        :ready     0         ready     0         running   1         
+Before Cycle12        :running   2         ready     0         blocked   4         
+Before Cycle13        :running   1         ready     0         blocked   3         
+Before Cycle14        :blocked   1         running   5         blocked   2         
+Before Cycle15        :ready     0         running   4         blocked   1         
+Before Cycle16        :ready     0         running   3         ready     0         
+Before Cycle17        :ready     0         running   2         ready     0         
+Before Cycle18        :ready     0         running   1         ready     0         
+Before Cycle19        :running   3         blocked   2         ready     0         
+Before Cycle20        :running   2         blocked   1         ready     0         
+Before Cycle21        :running   1         ready     0         ready     0         
+Before Cycle22        :blocked   2         ready     0         running   1         
+Before Cycle23        :blocked   1         running   4         blocked   4         
+Before Cycle24        :ready     0         running   3         blocked   3         
+Before Cycle25        :ready     0         running   2         blocked   2         
+Before Cycle26        :ready     0         running   1         blocked   1         
+Before Cycle27        :running   1         blocked   2         ready     0         
+Before Cycle28        :blocked   1         blocked   1         running   3         
+Before Cycle29        :ready     0         ready     0         running   2         
+Before Cycle30        :ready     0         ready     0         running   1         
+Before Cycle31        :running   2         ready     0         blocked   1         
+Before Cycle32        :running   1         ready     0         ready     0         
+Before Cycle33        :blocked   3         running   3         ready     0         
+Before Cycle34        :blocked   2         running   2         ready     0         
+Before Cycle35        :blocked   1         running   1         ready     0         
+Before Cycle36        :ready     0         blocked   1         running   3         
+Before Cycle37        :ready     0         ready     0         running   2         
+Before Cycle38        :ready     0         ready     0         running   1         
+Before Cycle39        :running   3         ready     0         blocked   3         
+Before Cycle40        :running   2         ready     0         blocked   2         
+Before Cycle41        :running   1         ready     0         blocked   1         
+Before Cycle42        :blocked   2         running   3         ready     0         
+Before Cycle43        :blocked   1         running   2         ready     0         
+Before Cycle44        :ready     0         running   1         ready     0         
+Before Cycle45        :ready     0         blocked   2         running   5         
+Before Cycle46        :ready     0         blocked   1         running   4         
+Before Cycle47        :ready     0         ready     0         running   3         
+Before Cycle48        :ready     0         ready     0         running   2         
+Before Cycle49        :ready     0         ready     0         running   1         
+Before Cycle50        :running   3         ready     0         blocked   3         
+Before Cycle51        :running   2         ready     0         blocked   2         
+Before Cycle52        :running   1         ready     0         blocked   1         
+Before Cycle53        :blocked   1         running   5         ready     0         
+Before Cycle54        :ready     0         running   4         ready     0         
+Before Cycle55        :ready     0         running   3         ready     0         
+Before Cycle56        :ready     0         running   2         ready     0         
+Before Cycle57        :ready     0         running   1         ready     0         
+Before Cycle58        :ready     0         blocked   1         running   4         
+Before Cycle59        :ready     0         ready     0         running   3         
+Before Cycle60        :ready     0         ready     0         running   2         
+Before Cycle61        :ready     0         ready     0         running   1         
+Before Cycle62        :running   2         ready     0         blocked   1         
+Before Cycle63        :running   1         ready     0         ready     0         
+Before Cycle64        :blocked   2         running   5         ready     0         
+Before Cycle65        :blocked   1         running   4         ready     0         
+Before Cycle66        :ready     0         running   3         ready     0         
+Before Cycle67        :ready     0         running   2         ready     0         
+Before Cycle68        :ready     0         running   1         ready     0         
+Before Cycle69        :ready     0         blocked   1         running   2         
+Before Cycle70        :ready     0         ready     0         running   1         
+Before Cycle71        :running   5         ready     0         blocked   4         
+Before Cycle72        :running   4         ready     0         blocked   3         
+Before Cycle73        :running   3         ready     0         blocked   2         
+Before Cycle74        :running   2         ready     0         blocked   1         
+Before Cycle75        :running   1         ready     0         ready     0         
+Before Cycle76        :blocked   2         running   4         ready     0         
+Before Cycle77        :blocked   1         running   3         ready     0         
+Before Cycle78        :ready     0         terminated          running   5         
+Before Cycle79        :ready     0         terminated          running   4         
+Before Cycle80        :ready     0         terminated          running   3         
+Before Cycle81        :ready     0         terminated          running   2         
+Before Cycle82        :ready     0         terminated          running   1         
+Before Cycle83        :running   1         terminated          blocked   4         
+Before Cycle84        :blocked   3         terminated          blocked   3         
+Before Cycle85        :blocked   2         terminated          blocked   2         
+Before Cycle86        :blocked   1         terminated          blocked   1         
+Before Cycle87        :running   2         terminated          ready     0         
+Before Cycle88        :running   1         terminated          ready     0         
+Before Cycle89        :blocked   2         terminated          running   1         
+Before Cycle90        :blocked   1         terminated          blocked   1         
+Before Cycle91        :running   4         terminated          ready     0         
+Before Cycle92        :running   3         terminated          ready     0         
+Before Cycle93        :terminated          terminated          running   3         
+Before Cycle94        :terminated          terminated          running   2         
+The scheduling algorithm used is FCFS
+
+
+Process 0:
+	(A,B,C,IO) (0,5,30,3)
+	 Finishing Time 92
+	 Turnaround Time 92
+	 I/O Time 253
+	 Waiting Time 41
+
+Process 1:
+	(A,B,C,IO) (1,5,30,3)
+	 Finishing Time 77
+	 Turnaround Time 76
+	 I/O Time 243
+	 Waiting Time 35
+
+Process 2:
+	(A,B,C,IO) (1,5,30,4)
+	 Finishing Time 94
+	 Turnaround Time 93
+	 I/O Time 257
+	 Waiting Time 38
+
+ Finishing Time 94
+ CPU Utilization 95.7447
+ IO Utilization 53.1915
+ Throughput 3.19149
+ Average Turnaround Time 87
+ Average Waiting Time 38
+
+---------------------------
+
+
+Part b
+
+This detailed printout gives the state and remaining burst for each process
+
+Before Cycle0         :unstarted 0         unstarted 0         unstarted 0         
+Before Cycle1         :running   2         unstarted 0         unstarted 0         
+Before Cycle2         :running   1         ready     0         ready     0         
+Before Cycle3         :ready     0         running   2         ready     0         
+Before Cycle4         :ready     0         running   1         ready     0         
+Before Cycle5         :ready     0         blocked   1         running   1         
+Before Cycle6         :running   2         ready     0         blocked   2         
+Before Cycle7         :running   1         ready     0         blocked   1         
+Before Cycle8         :blocked   2         running   2         ready     1         
+Before Cycle9         :blocked   1         running   1         ready     1         
+Before Cycle10        :ready     0         blocked   1         running   2         
+Before Cycle11        :ready     0         ready     0         running   1         
+Before Cycle12        :running   2         ready     0         ready     0         
+Before Cycle13        :running   1         ready     0         ready     0         
+Before Cycle14        :blocked   3         running   2         ready     0         
+Before Cycle15        :blocked   2         running   1         ready     0         
+Before Cycle16        :blocked   1         ready     0         running   2         
+Before Cycle17        :ready     0         ready     0         running   1         
+Before Cycle18        :ready     0         running   1         ready     0         
+Before Cycle19        :running   2         blocked   3         ready     0         
+Before Cycle20        :running   1         blocked   2         ready     0         
+Before Cycle21        :ready     0         blocked   1         running   1         
+Before Cycle22        :running   2         ready     1         blocked   4         
+Before Cycle23        :running   1         ready     1         blocked   3         
+Before Cycle24        :ready     0         running   2         blocked   2         
+Before Cycle25        :ready     0         running   1         blocked   1         
+Before Cycle26        :running   1         blocked   1         ready     1         
+Before Cycle27        :blocked   1         ready     0         running   2         
+Before Cycle28        :ready     1         ready     0         running   1         
+Before Cycle29        :ready     1         running   2         ready     0         
+Before Cycle30        :ready     1         running   1         ready     0         
+Before Cycle31        :running   2         blocked   3         ready     0         
+Before Cycle32        :running   1         blocked   2         ready     0         
+Before Cycle33        :ready     0         blocked   1         running   1         
+Before Cycle34        :running   2         ready     0         blocked   4         
+Before Cycle35        :running   1         ready     0         blocked   3         
+Before Cycle36        :blocked   1         running   2         blocked   2         
+Before Cycle37        :ready     0         running   1         blocked   1         
+Before Cycle38        :running   1         ready     0         ready     1         
+Before Cycle39        :blocked   3         running   1         ready     1         
+Before Cycle40        :blocked   2         blocked   2         running   2         
+Before Cycle41        :blocked   1         blocked   1         running   1         
+Before Cycle42        :running   1         ready     1         ready     0         
+Before Cycle43        :blocked   3         running   2         ready     0         
+Before Cycle44        :blocked   2         running   1         ready     0         
+Before Cycle45        :blocked   1         ready     0         running   1         
+Before Cycle46        :ready     1         running   1         blocked   3         
+Before Cycle47        :running   2         blocked   1         blocked   2         
+Before Cycle48        :running   1         ready     1         blocked   1         
+Before Cycle49        :ready     0         running   2         ready     1         
+Before Cycle50        :ready     0         running   1         ready     1         
+Before Cycle51        :running   2         ready     0         ready     1         
+Before Cycle52        :running   1         ready     0         ready     1         
+Before Cycle53        :ready     0         ready     0         running   2         
+Before Cycle54        :ready     0         ready     0         running   1         
+Before Cycle55        :ready     0         running   1         ready     0         
+Before Cycle56        :running   1         blocked   2         ready     0         
+Before Cycle57        :blocked   2         blocked   1         running   2         
+Before Cycle58        :blocked   1         ready     1         running   1         
+Before Cycle59        :ready     1         running   2         blocked   3         
+Before Cycle60        :ready     1         running   1         blocked   2         
+Before Cycle61        :running   2         ready     0         blocked   1         
+Before Cycle62        :running   1         ready     0         ready     0         
+Before Cycle63        :ready     0         running   2         ready     0         
+Before Cycle64        :ready     0         running   1         ready     0         
+Before Cycle65        :ready     0         ready     0         running   2         
+Before Cycle66        :ready     0         ready     0         running   1         
+Before Cycle67        :running   2         ready     0         blocked   4         
+Before Cycle68        :running   1         ready     0         blocked   3         
+Before Cycle69        :blocked   3         running   1         blocked   2         
+Before Cycle70        :blocked   2         blocked   2         blocked   1         
+Before Cycle71        :blocked   1         blocked   1         running   2         
+Before Cycle72        :ready     0         ready     1         running   1         
+Before Cycle73        :running   2         ready     1         ready     0         
+Before Cycle74        :running   1         ready     1         ready     0         
+Before Cycle75        :ready     0         running   1         ready     0         
+Before Cycle76        :ready     0         blocked   1         running   2         
+Before Cycle77        :ready     0         ready     1         running   1         
+Before Cycle78        :running   2         ready     1         blocked   2         
+Before Cycle79        :running   1         ready     1         blocked   1         
+Before Cycle80        :terminated          running   2         ready     0         
+Before Cycle81        :terminated          running   1         ready     0         
+Before Cycle82        :terminated          blocked   2         running   1         
+Before Cycle83        :terminated          blocked   1         blocked   1         
+Before Cycle84        :terminated          running   2         ready     1         
+Before Cycle85        :terminated          running   1         ready     1         
+Before Cycle86        :terminated          terminated          running   2         
+Before Cycle87        :terminated          terminated          running   1         
+Before Cycle88        :terminated          terminated          running   1         
+Before Cycle89        :terminated          terminated          blocked   3         
+Before Cycle90        :terminated          terminated          blocked   2         
+Before Cycle91        :terminated          terminated          blocked   1         
+Before Cycle92        :terminated          terminated          running   2         
+Before Cycle93        :terminated          terminated          running   1         
+Before Cycle94        :terminated          terminated          blocked   2         
+Before Cycle95        :terminated          terminated          blocked   1         
+Before Cycle96        :terminated          terminated          running   1         
+Before Cycle97        :terminated          terminated          blocked   2         
+Before Cycle98        :terminated          terminated          blocked   1         
+Before Cycle99        :terminated          terminated          running   2         
+The scheduling algorithm used is RR2
+
+Process 0:
+	(A,B,C,IO) (0,5,30,3)
+	 Finishing Time 79
+	 Turnaround Time 79
+	 I/O Time 250
+	 Waiting Time 31
+
+Process 1:
+	(A,B,C,IO) (1,5,30,3)
+	 Finishing Time 85
+	 Turnaround Time 84
+	 I/O Time 251
+	 Waiting Time 35
+
+Process 2:
+	(A,B,C,IO) (1,5,30,4)
+	 Finishing Time 99
+	 Turnaround Time 98
+	 I/O Time 262
+	 Waiting Time 38
+
+ Finishing Time 99
+ CPU Utilization 90.9091
+ IO Utilization 57.5758
+ Throughput 3.0303
+ Average Turnaround Time 87
+ Average Waiting Time 34.6667
+
+---------------------------
+
+
+Part c
+
+This detailed printout gives the state and remaining burst for each process
+
+Before Cycle0         :unstarted 0         unstarted 0         unstarted 0         
+Before Cycle1         :running   4         unstarted 0         unstarted 0         
+Before Cycle2         :running   3         ready     0         ready     0         
+Before Cycle3         :running   2         ready     0         ready     0         
+Before Cycle4         :running   1         ready     0         ready     0         
+Before Cycle5         :blocked   2         ready     0         ready     0         
+Before Cycle6         :blocked   1         ready     0         ready     0         
+Before Cycle7         :running   3         ready     0         ready     0         
+Before Cycle8         :running   2         ready     0         ready     0         
+Before Cycle9         :running   1         ready     0         ready     0         
+Before Cycle10        :blocked   2         ready     0         ready     0         
+Before Cycle11        :blocked   1         ready     0         ready     0         
+Before Cycle12        :running   4         ready     0         ready     0         
+Before Cycle13        :running   3         ready     0         ready     0         
+Before Cycle14        :running   2         ready     0         ready     0         
+Before Cycle15        :running   1         ready     0         ready     0         
+Before Cycle16        :blocked   2         ready     0         ready     0         
+Before Cycle17        :blocked   1         ready     0         ready     0         
+Before Cycle18        :running   2         ready     0         ready     0         
+Before Cycle19        :running   1         ready     0         ready     0         
+Before Cycle20        :blocked   1         ready     0         ready     0         
+Before Cycle21        :running   5         ready     0         ready     0         
+Before Cycle22        :running   4         ready     0         ready     0         
+Before Cycle23        :running   3         ready     0         ready     0         
+Before Cycle24        :running   2         ready     0         ready     0         
+Before Cycle25        :running   1         ready     0         ready     0         
+Before Cycle26        :blocked   2         ready     0         ready     0         
+Before Cycle27        :blocked   1         ready     0         ready     0         
+Before Cycle28        :running   3         ready     0         ready     0         
+Before Cycle29        :running   2         ready     0         ready     0         
+Before Cycle30        :running   1         ready     0         ready     0         
+Before Cycle31        :blocked   2         ready     0         ready     0         
+Before Cycle32        :blocked   1         ready     0         ready     0         
+Before Cycle33        :running   1         ready     0         ready     0         
+Before Cycle34        :blocked   2         ready     0         ready     0         
+Before Cycle35        :blocked   1         ready     0         ready     0         
+Before Cycle36        :running   4         ready     0         ready     0         
+Before Cycle37        :running   3         ready     0         ready     0         
+Before Cycle38        :running   2         ready     0         ready     0         
+Before Cycle39        :running   1         ready     0         ready     0         
+Before Cycle40        :blocked   2         ready     0         ready     0         
+Before Cycle41        :blocked   1         ready     0         ready     0         
+Before Cycle42        :running   1         ready     0         ready     0         
+Before Cycle43        :blocked   1         ready     0         ready     0         
+Before Cycle44        :running   3         ready     0         ready     0         
+Before Cycle45        :running   2         ready     0         ready     0         
+Before Cycle46        :running   1         ready     0         ready     0         
+Before Cycle47        :terminated          running   2         ready     0         
+Before Cycle48        :terminated          running   1         ready     0         
+Before Cycle49        :terminated          blocked   3         ready     0         
+Before Cycle50        :terminated          blocked   2         ready     0         
+Before Cycle51        :terminated          blocked   1         ready     0         
+Before Cycle52        :terminated          running   4         ready     0         
+Before Cycle53        :terminated          running   3         ready     0         
+Before Cycle54        :terminated          running   2         ready     0         
+Before Cycle55        :terminated          running   1         ready     0         
+Before Cycle56        :terminated          blocked   1         ready     0         
+Before Cycle57        :terminated          running   5         ready     0         
+Before Cycle58        :terminated          running   4         ready     0         
+Before Cycle59        :terminated          running   3         ready     0         
+Before Cycle60        :terminated          running   2         ready     0         
+Before Cycle61        :terminated          running   1         ready     0         
+Before Cycle62        :terminated          blocked   3         ready     0         
+Before Cycle63        :terminated          blocked   2         ready     0         
+Before Cycle64        :terminated          blocked   1         ready     0         
+Before Cycle65        :terminated          running   1         ready     0         
+Before Cycle66        :terminated          blocked   3         ready     0         
+Before Cycle67        :terminated          blocked   2         ready     0         
+Before Cycle68        :terminated          blocked   1         ready     0         
+Before Cycle69        :terminated          running   4         ready     0         
+Before Cycle70        :terminated          running   3         ready     0         
+Before Cycle71        :terminated          running   2         ready     0         
+Before Cycle72        :terminated          running   1         ready     0         
+Before Cycle73        :terminated          blocked   2         ready     0         
+Before Cycle74        :terminated          blocked   1         ready     0         
+Before Cycle75        :terminated          running   1         ready     0         
+Before Cycle76        :terminated          blocked   3         ready     0         
+Before Cycle77        :terminated          blocked   2         ready     0         
+Before Cycle78        :terminated          blocked   1         ready     0         
+Before Cycle79        :terminated          running   3         ready     0         
+Before Cycle80        :terminated          running   2         ready     0         
+Before Cycle81        :terminated          running   1         ready     0         
+Before Cycle82        :terminated          blocked   1         ready     0         
+Before Cycle83        :terminated          running   4         ready     0         
+Before Cycle84        :terminated          running   3         ready     0         
+Before Cycle85        :terminated          running   2         ready     0         
+Before Cycle86        :terminated          running   1         ready     0         
+Before Cycle87        :terminated          blocked   3         ready     0         
+Before Cycle88        :terminated          blocked   2         ready     0         
+Before Cycle89        :terminated          blocked   1         ready     0         
+Before Cycle90        :terminated          running   3         ready     0         
+Before Cycle91        :terminated          running   2         ready     0         
+Before Cycle92        :terminated          running   1         ready     0         
+Before Cycle93        :terminated          blocked   2         ready     0         
+Before Cycle94        :terminated          blocked   1         ready     0         
+Before Cycle95        :terminated          running   2         ready     0         
+Before Cycle96        :terminated          running   1         ready     0         
+Before Cycle97        :terminated          blocked   2         ready     0         
+Before Cycle98        :terminated          blocked   1         ready     0         
+Before Cycle99        :terminated          running   3         ready     0         
+Before Cycle100       :terminated          terminated          running   5         
+Before Cycle101       :terminated          terminated          running   4         
+Before Cycle102       :terminated          terminated          running   3         
+Before Cycle103       :terminated          terminated          running   2         
+Before Cycle104       :terminated          terminated          running   1         
+Before Cycle105       :terminated          terminated          blocked   2         
+Before Cycle106       :terminated          terminated          blocked   1         
+Before Cycle107       :terminated          terminated          running   2         
+Before Cycle108       :terminated          terminated          running   1         
+Before Cycle109       :terminated          terminated          blocked   4         
+Before Cycle110       :terminated          terminated          blocked   3         
+Before Cycle111       :terminated          terminated          blocked   2         
+Before Cycle112       :terminated          terminated          blocked   1         
+Before Cycle113       :terminated          terminated          running   5         
+Before Cycle114       :terminated          terminated          running   4         
+Before Cycle115       :terminated          terminated          running   3         
+Before Cycle116       :terminated          terminated          running   2         
+Before Cycle117       :terminated          terminated          running   1         
+Before Cycle118       :terminated          terminated          blocked   2         
+Before Cycle119       :terminated          terminated          blocked   1         
+Before Cycle120       :terminated          terminated          running   4         
+Before Cycle121       :terminated          terminated          running   3         
+Before Cycle122       :terminated          terminated          running   2         
+Before Cycle123       :terminated          terminated          running   1         
+Before Cycle124       :terminated          terminated          blocked   1         
+Before Cycle125       :terminated          terminated          running   1         
+Before Cycle126       :terminated          terminated          blocked   3         
+Before Cycle127       :terminated          terminated          blocked   2         
+Before Cycle128       :terminated          terminated          blocked   1         
+Before Cycle129       :terminated          terminated          running   4         
+Before Cycle130       :terminated          terminated          running   3         
+Before Cycle131       :terminated          terminated          running   2         
+Before Cycle132       :terminated          terminated          running   1         
+Before Cycle133       :terminated          terminated          blocked   3         
+Before Cycle134       :terminated          terminated          blocked   2         
+Before Cycle135       :terminated          terminated          blocked   1         
+Before Cycle136       :terminated          terminated          running   2         
+Before Cycle137       :terminated          terminated          running   1         
+Before Cycle138       :terminated          terminated          blocked   1         
+Before Cycle139       :terminated          terminated          running   2         
+Before Cycle140       :terminated          terminated          running   1         
+Before Cycle141       :terminated          terminated          blocked   2         
+Before Cycle142       :terminated          terminated          blocked   1         
+Before Cycle143       :terminated          terminated          running   3         
+Before Cycle144       :terminated          terminated          running   2         
+Before Cycle145       :terminated          terminated          running   1         
+Before Cycle146       :terminated          terminated          blocked   3         
+Before Cycle147       :terminated          terminated          blocked   2         
+Before Cycle148       :terminated          terminated          blocked   1         
+Before Cycle149       :terminated          terminated          running   2         
+Before Cycle150       :terminated          terminated          running   1         
+The scheduling algorithm used is Uniprogrammed
+
+Process 0:
+	(A,B,C,IO) (0,5,30,3)
+	 Finishing Time 46
+	 Turnaround Time 46
+	 I/O Time 248
+	 Waiting Time 0
+
+Process 1:
+	(A,B,C,IO) (1,5,30,3)
+	 Finishing Time 99
+	 Turnaround Time 98
+	 I/O Time 255
+	 Waiting Time 45
+
+Process 2:
+	(A,B,C,IO) (1,5,30,4)
+	 Finishing Time 150
+	 Turnaround Time 149
+	 I/O Time 253
+	 Waiting Time 98
+
+ Finishing Time 150
+ CPU Utilization 60
+ IO Utilization 40
+ Throughput 2
+ Average Turnaround Time 97.6667
+ Average Waiting Time 47.6667
+
+---------------------------
+
+
+Part d
+
+This detailed printout gives the state and remaining burst for each process
+
+Before Cycle0         :unstarted 0         unstarted 0         unstarted 0         
+Before Cycle1         :running   4         unstarted 0         unstarted 0         
+Before Cycle2         :running   3         ready     0         ready     0         
+Before Cycle3         :running   2         ready     0         ready     0         
+Before Cycle4         :running   1         ready     0         ready     0         
+Before Cycle5         :blocked   2         running   3         ready     0         
+Before Cycle6         :blocked   1         running   2         ready     0         
+Before Cycle7         :running   1         ready     1         ready     0         
+Before Cycle8         :blocked   3         running   1         ready     0         
+Before Cycle9         :blocked   2         blocked   2         running   2         
+Before Cycle10        :blocked   1         blocked   1         running   1         
+Before Cycle11        :running   5         ready     0         blocked   1         
+Before Cycle12        :running   4         ready     0         ready     0         
+Before Cycle13        :running   3         ready     0         ready     0         
+Before Cycle14        :running   2         ready     0         ready     0         
+Before Cycle15        :running   1         ready     0         ready     0         
+Before Cycle16        :blocked   2         running   3         ready     0         
+Before Cycle17        :blocked   1         running   2         ready     0         
+Before Cycle18        :running   3         ready     1         ready     0         
+Before Cycle19        :running   2         ready     1         ready     0         
+Before Cycle20        :running   1         ready     1         ready     0         
+Before Cycle21        :blocked   3         running   1         ready     0         
+Before Cycle22        :blocked   2         blocked   2         running   4         
+Before Cycle23        :blocked   1         blocked   1         running   3         
+Before Cycle24        :running   2         ready     0         ready     2         
+Before Cycle25        :running   1         ready     0         ready     2         
+Before Cycle26        :blocked   1         running   2         ready     2         
+Before Cycle27        :running   3         ready     1         ready     2         
+Before Cycle28        :running   2         ready     1         ready     2         
+Before Cycle29        :running   1         ready     1         ready     2         
+Before Cycle30        :blocked   2         running   1         ready     2         
+Before Cycle31        :blocked   1         blocked   3         running   2         
+Before Cycle32        :running   4         blocked   2         ready     1         
+Before Cycle33        :running   3         blocked   1         ready     1         
+Before Cycle34        :running   2         ready     0         ready     1         
+Before Cycle35        :running   1         ready     0         ready     1         
+Before Cycle36        :blocked   1         running   5         ready     1         
+Before Cycle37        :running   3         ready     4         ready     1         
+Before Cycle38        :running   2         ready     4         ready     1         
+Before Cycle39        :running   1         ready     4         ready     1         
+Before Cycle40        :blocked   3         running   4         ready     1         
+Before Cycle41        :blocked   2         running   3         ready     1         
+Before Cycle42        :blocked   1         running   2         ready     1         
+Before Cycle43        :running   3         ready     1         ready     1         
+Before Cycle44        :running   2         ready     1         ready     1         
+Before Cycle45        :running   1         ready     1         ready     1         
+Before Cycle46        :blocked   2         running   1         ready     1         
+Before Cycle47        :blocked   1         blocked   2         running   1         
+Before Cycle48        :running   5         blocked   1         blocked   4         
+Before Cycle49        :running   4         ready     0         blocked   3         
+Before Cycle50        :terminated          running   3         blocked   2         
+Before Cycle51        :terminated          running   2         blocked   1         
+Before Cycle52        :terminated          running   1         ready     0         
+Before Cycle53        :terminated          blocked   1         running   4         
+Before Cycle54        :terminated          running   5         ready     3         
+Before Cycle55        :terminated          running   4         ready     3         
+Before Cycle56        :terminated          running   3         ready     3         
+Before Cycle57        :terminated          running   2         ready     3         
+Before Cycle58        :terminated          running   1         ready     3         
+Before Cycle59        :terminated          blocked   1         running   3         
+Before Cycle60        :terminated          running   4         ready     2         
+Before Cycle61        :terminated          running   3         ready     2         
+Before Cycle62        :terminated          running   2         ready     2         
+Before Cycle63        :terminated          running   1         ready     2         
+Before Cycle64        :terminated          blocked   2         running   2         
+Before Cycle65        :terminated          blocked   1         running   1         
+Before Cycle66        :terminated          running   3         blocked   4         
+Before Cycle67        :terminated          running   2         blocked   3         
+Before Cycle68        :terminated          running   1         blocked   2         
+Before Cycle69        :terminated          blocked   1         blocked   1         
+Before Cycle70        :terminated          running   4         ready     0         
+Before Cycle71        :terminated          running   3         ready     0         
+Before Cycle72        :terminated          terminated          running   2         
+Before Cycle73        :terminated          terminated          running   1         
+Before Cycle74        :terminated          terminated          blocked   4         
+Before Cycle75        :terminated          terminated          blocked   3         
+Before Cycle76        :terminated          terminated          blocked   2         
+Before Cycle77        :terminated          terminated          blocked   1         
+Before Cycle78        :terminated          terminated          running   5         
+Before Cycle79        :terminated          terminated          running   4         
+Before Cycle80        :terminated          terminated          running   3         
+Before Cycle81        :terminated          terminated          running   2         
+Before Cycle82        :terminated          terminated          running   1         
+Before Cycle83        :terminated          terminated          blocked   2         
+Before Cycle84        :terminated          terminated          blocked   1         
+Before Cycle85        :terminated          terminated          running   4         
+Before Cycle86        :terminated          terminated          running   3         
+Before Cycle87        :terminated          terminated          running   2         
+Before Cycle88        :terminated          terminated          running   1         
+Before Cycle89        :terminated          terminated          blocked   1         
+Before Cycle90        :terminated          terminated          running   1         
+Before Cycle91        :terminated          terminated          blocked   3         
+Before Cycle92        :terminated          terminated          blocked   2         
+Before Cycle93        :terminated          terminated          blocked   1         
+Before Cycle94        :terminated          terminated          running   4         
+Before Cycle95        :terminated          terminated          running   3         
+Before Cycle96        :terminated          terminated          running   2         
+Before Cycle97        :terminated          terminated          running   1         
+Before Cycle98        :terminated          terminated          blocked   3         
+Before Cycle99        :terminated          terminated          blocked   2         
+Before Cycle100       :terminated          terminated          blocked   1         
+Before Cycle101       :terminated          terminated          running   2         
+Before Cycle102       :terminated          terminated          running   1         
+Before Cycle103       :terminated          terminated          blocked   1         
+Before Cycle104       :terminated          terminated          running   2         
+Before Cycle105       :terminated          terminated          running   1         
+The scheduling algorithm used is SRTN
+
+Process 0:
+	(A,B,C,IO) (0,5,30,3)
+	 Finishing Time 49
+	 Turnaround Time 49
+	 I/O Time 251
+	 Waiting Time 0
+
+Process 1:
+	(A,B,C,IO) (1,5,30,3)
+	 Finishing Time 71
+	 Turnaround Time 70
+	 I/O Time 246
+	 Waiting Time 26
+
+Process 2:
+	(A,B,C,IO) (1,5,30,4)
+	 Finishing Time 105
+	 Turnaround Time 104
+	 I/O Time 255
+	 Waiting Time 51
+
+ Finishing Time 105
+ CPU Utilization 85.7143
+ IO Utilization 45.7143
+ Throughput 2.85714
+ Average Turnaround Time 74.3333
+ Average Waiting Time 25.6667
+
+---------------------------
